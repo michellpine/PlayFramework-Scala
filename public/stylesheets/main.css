@@ -2,7 +2,7 @@
 body { color:black; }
 
 /* Set font size to be approximately 7pt for an 800px screen shot 127mm wide */
-body, p, label { font-size:25px; }
+body, p, label { font-size:15px; }
 .label { font-size:13px; line-height:16px; }
 
 /* Replace light-blue alert background with white on dark-blue. */
@@ -11,10 +11,10 @@ body, p, label { font-size:25px; }
 
 /* Set the width to result in a suitable resolution at 127mm wide. */
 div.screenshot { width: 800px; margin:20px; background-color:#D0E7EF; }
-.navbar-fixed-top .navbar-inner { padding-left:40px; }
+.navbar-fixed-top .navbar-inner { padding-left:20px; }
 .navbar .nav > li > a { color:#bbb; }
 
-.screenshot > .container { width: 860px; padding: 20px; }
+.screenshot > .container { width: 760px; padding: 20px; }
 
 .navbar-fixed-top, .navbar-fixed-bottom { position:relative; }
 

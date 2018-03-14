@@ -8,15 +8,4 @@
     <dd>@product.description</dd>
     }
 </dl>
-
-<footer>
-    @if(messages.messages.lang.language.equals("en")){
-        lang: en,
-    } @if(messages.messages.lang.language.equals("es")) {
-        lang: es,
-    } @if(messages.messages.lang.language.equals("fr")) {
-        lang: fr,
-    }
-    date: @(new java.util.Date().format("yyyy-MM-dd HH:mm"))
-</footer>
 }
