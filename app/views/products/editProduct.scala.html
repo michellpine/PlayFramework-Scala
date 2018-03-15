@@ -1,11 +1,10 @@
-@(productForm: Form[Product])(implicit flash: Flash)
 @import helper._
-@import helper.twittetBootstrap._
+@(productForm: Form[Product])(implicit flash: Flash, messages: Messages)
 
-@main(Messges("products.form")) {
-    <h2>@Messages("products.form)</h2>
+@main(Messages("products.form")) {
+    <h2>@Messages("products.form")</h2>
 
-    @helper.form(action = routes.Products.save()) {
+    @helper.form(routes.ProductsController.save()) {
         <fieldset>
             <legend>
                 @Messages("products.details", Messages("products.new"))

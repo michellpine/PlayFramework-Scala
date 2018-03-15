@@ -34,8 +34,8 @@ class ProductsController @Inject()(cc: ControllerComponents,messagesApi: Message
   }
 
   def newProduct = Action { implicit request =>
-    val form = if(flash.get("error").isDefined)
-      productForm.bind(flash.data)
+    val form = if(request.flash.get("error").isDefined)
+      productForm.bind(request.flash.data)
     else
       productForm
 
@@ -47,7 +47,7 @@ class ProductsController @Inject()(cc: ControllerComponents,messagesApi: Message
 
     newProductForm.fold(
       hasErrors = { form =>
-        Redirect(routes.ProductsController.newProduct).
+        Redirect(routes.ProductsController.newProduct()).
           flashing(Flash(form.data) +
             ("error" -> Messages("validation.errors")))
       },
@@ -55,7 +55,7 @@ class ProductsController @Inject()(cc: ControllerComponents,messagesApi: Message
         Product.add(newProduct)
         val message = Messages("products.new.success", newProduct.name)
         Redirect(routes.ProductsController.show(newProduct.ean)).
-          flashing("sucess" -> message)
+          flashing("success" -> message)
       }
     )
   }
