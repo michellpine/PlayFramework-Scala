@@ -1,5 +1,7 @@
 package models
 
+
+import com.mongodb.casbah.Imports._
 import play.api.data.Form._
 
 //model class

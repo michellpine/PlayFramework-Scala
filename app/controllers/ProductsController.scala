@@ -18,8 +18,8 @@ class ProductsController @Inject()(cc: ControllerComponents,messagesApi: Message
       "name" -> nonEmptyText,
       "description" -> nonEmptyText
     )
-    //funciones para mappear entre el form y el model
-    (Product.apply)(Product.unapply)
+      //funciones para mappear entre el form y el model
+      (Product.apply)(Product.unapply)
   )
 
   def list = Action { implicit request =>
