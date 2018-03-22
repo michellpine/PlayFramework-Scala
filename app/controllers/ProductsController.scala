@@ -13,13 +13,10 @@ class ProductsController @Inject()(cc: ControllerComponents,messagesApi: Message
 
   private val productForm: Form[Product] = Form(
     mapping(
-      "ean" -> longNumber.verifying(
-        "validation.ean.duplicate", Product.findByEan(_).isEmpty),
+      "ean" -> longNumber,
       "name" -> nonEmptyText,
       "description" -> nonEmptyText
-    )
-      //funciones para mappear entre el form y el model
-      (Product.apply)(Product.unapply)
+    )(Product.apply)(Product.unapply) //funciones para mappear entre el form y el model
   )
 
   def list = Action { implicit request =>
@@ -28,9 +25,8 @@ class ProductsController @Inject()(cc: ControllerComponents,messagesApi: Message
   }
 
   def show(ean: Long) = Action { implicit request =>
-    Product.findByEan(ean).map { product =>
-      Ok(views.html.products.details(product))
-    }.getOrElse(NotFound)
+    val product = Product.findByEan(ean)
+    Ok(views.html.products.details(product))
   }
 
   def newProduct = Action { implicit request =>

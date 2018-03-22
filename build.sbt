@@ -14,8 +14,12 @@ libraryDependencies ++= Seq(
   "org.webjars" % "bootstrap" % "4.0.0-1" exclude("org.webjars", "jquery"),
   "org.webjars" % "bootstrap-datepicker" % "1.4.0" exclude("org.webjars", "bootstrap"),
   "org.scalatest" %% "scalatest" % "3.2.0-SNAP10" % Test,
-  "org.mongodb" %% "casbah-core" % "3.1.1"
+  "org.mongodb" %% "casbah-core" % "3.1.1",
+  "com.github.salat" %% "salat" % "1.11.2",
+  "org.slf4j" % "slf4j-api" % "1.7.25"
 )
+
+scalacOptions += "-deprecation"
 
 
 // For stable releases
